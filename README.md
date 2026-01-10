@@ -284,7 +284,7 @@ MIT License - See LICENSE file for details.
 
 ---
 
-Made with 🧝 by Trixly AI Solutions
-#   l i t t l e - e l f - f r o n t e n d 
+
  
  
+
