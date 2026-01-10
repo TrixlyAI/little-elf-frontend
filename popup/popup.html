@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Elf</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img src="../assets/icon48.png" alt="Little Elf" class="logo">
+        <div class="brand-info">
+          <h1>Little Elf</h1>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+      <div class="status" id="status">
+        <span class="status-dot active"></span>
+        <span class="status-text">Active</span>
+      </div>
+    </header>
+
+    <!-- Current Page Info -->
+    <section class="page-info" id="pageSection">
+      <div class="info-row">
+        <span class="label">Current page</span>
+        <span class="page-title" id="pageTitle">Loading...</span>
+      </div>
+      <div class="page-url" id="pageUrl"></div>
+    </section>
+
+    <!-- Main Actions -->
+    <section class="actions">
+      <button class="action-btn primary" id="openChat">
+        <span class="btn-icon">💬</span>
+        <span class="btn-text">Chat with Page</span>
+        <span class="btn-hint">AI-powered Q&A</span>
+      </button>
+
+      <button class="action-btn secondary" id="extractNow">
+        <span class="btn-icon">📄</span>
+        <span class="btn-text">Extract Content</span>
+        <span class="btn-hint">Refresh page data</span>
+      </button>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats" id="statsSection">
+      <div class="stat">
+        <span class="stat-value" id="charCount">—</span>
+        <span class="stat-label">Characters</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="headingCount">—</span>
+        <span class="stat-label">Headings</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="lastExtract">—</span>
+        <span class="stat-label">Extracted</span>
+      </div>
+    </section>
+
+    <!-- Toggle & Settings -->
+    <section class="controls">
+      <div class="toggle-row">
+        <span>Extension enabled</span>
+        <label class="toggle">
+          <input type="checkbox" id="enableToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button class="footer-btn" id="clearData">Clear Data</button>
+      <button class="footer-btn" id="settings">Settings</button>
+    </footer>
+
+    <!-- Keyboard Shortcut Hint -->
+    <div class="shortcut-hint">
+      <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> to open chat
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
