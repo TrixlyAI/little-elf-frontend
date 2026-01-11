@@ -1,291 +1,315 @@
-# 🧝 Little Elf - AI Page Assistant
+# 🧝 Little Elf – AI Page Assistant
 
-A Chrome extension that lets you chat with any webpage using AI. Extract page content, ask questions, and get intelligent answers powered by OpenAI's Assistant API with RAG (Retrieval-Augmented Generation).
+A Chrome extension that lets you chat with any webpage using AI. Extract page content, ask questions, and get intelligent answers powered by OpenAI’s Assistant API with RAG (Retrieval-Augmented Generation).
 
 <p align="center">
   <img src="assets/icon128.png" alt="Little Elf Logo" width="128">
 </p>
 
+---
+
 ## ✨ Features
 
-- **🗣️ Chat with any page** - Ask questions about the content you're viewing
-- **📄 Smart extraction** - Automatically extracts clean content from web pages
-- **🤖 AI-powered answers** - Uses OpenAI's Assistant API with file_search for accurate responses
-- **💾 Session persistence** - Continue conversations where you left off
-- **🌙 Dark mode** - Automatic theme matching with system preferences
-- **⌨️ Keyboard shortcuts** - Quick access with Ctrl+Shift+L
-- **📤 Export chats** - Download conversations as Markdown
-- **🔒 Privacy-focused** - Your data stays in your browser and your own backend
+* **🗣️ Chat with any page**
+  Ask questions about the content you are viewing
+
+* **📄 Smart extraction**
+  Automatically extracts clean, readable content from web pages
+
+* **🤖 AI-powered answers**
+  Uses OpenAI Assistant API with `file_search` for accurate responses
+
+* **💾 Session persistence**
+  Continue conversations where you left off
+
+* **🌙 Dark mode**
+  Automatically matches system theme preferences
+
+* **⌨️ Keyboard shortcuts**
+  Quick access using `Ctrl + Shift + L`
+
+* **📤 Export chats**
+  Download conversations as Markdown files
+
+* **🔒 Privacy-focused**
+  Your data stays in your browser and your own backend
+
+---
 
 ## 📦 Project Structure
 
-```
+```text
 little-elf/
 ├── manifest.json              # Extension manifest (v3)
 ├── popup/
-│   ├── popup.html            # Quick actions popup
-│   ├── popup.js              # Popup logic
-│   └── popup.css             # Popup styles
+│   ├── popup.html             # Quick actions popup
+│   ├── popup.js               # Popup logic
+│   └── popup.css              # Popup styles
 ├── sidepanel/
-│   ├── sidepanel.html        # Chat interface
-│   ├── sidepanel.js          # Chat logic with API integration
-│   └── sidepanel.css         # Modern chat UI styles
+│   ├── sidepanel.html         # Chat interface
+│   ├── sidepanel.js           # Chat logic with API integration
+│   └── sidepanel.css          # Modern chat UI styles
 ├── content/
-│   └── content.js            # Page content extraction
+│   └── content.js             # Page content extraction
 ├── background/
-│   └── background.js         # Service worker
+│   └── background.js          # Service worker
 ├── assets/
 │   ├── icon16.png
 │   ├── icon48.png
 │   └── icon128.png
 ├── backend/                   # Next.js API (deploy separately)
 │   ├── src/
-│   │   ├── app/api/          # API routes
-│   │   ├── lib/              # Utilities
-│   │   └── models/           # MongoDB schemas
+│   │   ├── app/api/           # API routes
+│   │   ├── lib/               # Utilities
+│   │   └── models/            # MongoDB schemas
 │   └── package.json
 └── README.md
 ```
+
+---
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Chrome browser (version 116+)
-- Node.js 18+ (for backend)
-- MongoDB (local or Atlas)
-- OpenAI API key
+* Chrome browser version 116+
+* Node.js 18+
+* MongoDB (local or Atlas)
+* OpenAI API key
 
-### Step 1: Setup Backend
+---
 
-1. **Navigate to backend directory:**
+## 🔧 Step 1: Setup Backend
+
+1. Navigate to backend directory
+
    ```bash
    cd backend
    ```
 
-2. **Install dependencies:**
+2. Install dependencies
+
    ```bash
    npm install
    ```
 
-3. **Create environment file:**
+3. Create environment file
+
    ```bash
    cp .env.example .env.local
    ```
 
-4. **Edit `.env.local` with your credentials:**
+4. Edit `.env.local`
+
    ```env
    MONGODB_URI=mongodb://localhost:27017/little-elf
    OPENAI_API_KEY=sk-your-openai-api-key-here
    ```
 
-5. **Start the backend:**
+5. Start backend
+
    ```bash
    npm run dev
    ```
 
-6. **Verify it's working:**
+6. Verify backend
+
    ```bash
    curl http://localhost:3000/api/health
    ```
 
-### Step 2: Install Chrome Extension
+---
 
-1. **Open Chrome Extensions:**
-   - Navigate to `chrome://extensions/`
-   - Enable "Developer mode" (top right toggle)
+## 🧩 Step 2: Install Chrome Extension
 
-2. **Load the extension:**
-   - Click "Load unpacked"
-   - Select the `little-elf` folder (NOT the backend folder)
-   - Click "Select Folder"
+1. Open Chrome Extensions
 
-3. **Pin the extension:**
-   - Click the puzzle icon in Chrome toolbar
-   - Pin "Little Elf" for easy access
+   * Go to `chrome://extensions/`
+   * Enable **Developer mode**
 
-### Step 3: Start Chatting!
+2. Load the extension
 
-1. Navigate to any webpage
-2. Click the Little Elf icon or press `Ctrl+Shift+L`
-3. Click "Chat with Page" to open the sidepanel
-4. Start asking questions about the page!
+   * Click **Load unpacked**
+   * Select the `little-elf` folder (not the backend)
+
+3. Pin the extension
+
+   * Click the puzzle icon
+   * Pin **Little Elf**
+
+---
+
+## 💬 Step 3: Start Chatting
+
+1. Open any webpage
+2. Click the Little Elf icon or press `Ctrl + Shift + L`
+3. Open **Chat with Page**
+4. Ask questions about the page content
+
+---
 
 ## 🎯 Usage Guide
 
 ### Opening the Chat
 
-| Method | Action |
-|--------|--------|
-| **Popup** | Click extension icon → "Chat with Page" |
-| **Keyboard** | `Ctrl+Shift+L` (Windows/Linux) or `Cmd+Shift+L` (Mac) |
-| **Context Menu** | Right-click → "Little Elf" (if enabled) |
+| Method       | Action                                 |
+| ------------ | -------------------------------------- |
+| Popup        | Click extension icon → Chat with Page  |
+| Keyboard     | `Ctrl + Shift + L` / `Cmd + Shift + L` |
+| Context Menu | Right-click → Little Elf               |
+
+---
 
 ### Quick Actions
 
-The sidepanel includes quick action buttons:
-- 📄 **Summarize Page** - Get a quick summary
-- 📌 **Key Points** - Extract main points
-- 💡 **Explain Simply** - Get a simple explanation
+* 📄 Summarize Page
+* 📌 Extract Key Points
+* 💡 Explain Simply
 
-### Features
+---
 
-| Feature | How to Use |
-|---------|------------|
-| **Ask Questions** | Type in the chat input and press Enter |
-| **Copy Messages** | Hover over a message and click "Copy" |
-| **Export Chat** | Settings → "Export as Markdown" |
-| **Clear Conversation** | Settings → "Clear Conversation" |
-| **Refresh Context** | Click the refresh button to re-extract page |
-| **Change API URL** | Settings → Enter your backend URL |
+### Chat Features
+
+| Feature         | How to Use                    |
+| --------------- | ----------------------------- |
+| Ask Questions   | Type and press Enter          |
+| Copy Messages   | Hover and click Copy          |
+| Export Chat     | Settings → Export as Markdown |
+| Clear Chat      | Settings → Clear Conversation |
+| Refresh Context | Click refresh icon            |
+| Change API URL  | Settings → Backend URL        |
+
+---
 
 ## ⚙️ Configuration
 
 ### Extension Settings
 
-Open the popup and click "Settings" to configure:
+* API Endpoint (default `http://localhost:3000`)
+* Enable or disable extension
 
-- **API Endpoint**: Your backend URL (default: `http://localhost:3000`)
-- **Enable/Disable**: Toggle the extension on/off
+---
 
 ### Backend Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `MONGODB_URI` | MongoDB connection string | ✅ |
-| `OPENAI_API_KEY` | OpenAI API key | ✅ |
-| `NEXT_PUBLIC_API_URL` | Public API URL | ❌ |
-| `CORS_ALLOWED_ORIGINS` | Allowed origins | ❌ |
+| Variable             | Description               | Required |
+| -------------------- | ------------------------- | -------- |
+| MONGODB_URI          | MongoDB connection string | Yes      |
+| OPENAI_API_KEY       | OpenAI API key            | Yes      |
+| NEXT_PUBLIC_API_URL  | Public API URL            | No       |
+| CORS_ALLOWED_ORIGINS | Allowed origins           | No       |
 
-## 🔧 Development
+---
 
-### Running Locally
+## 🛠️ Development
 
-1. **Start MongoDB:**
+### Local Development
+
+1. Start MongoDB
+
    ```bash
    mongod
    ```
 
-2. **Start backend:**
+2. Start backend
+
    ```bash
    cd backend && npm run dev
    ```
 
-3. **Load extension in Chrome:**
-   - Go to `chrome://extensions/`
-   - Click "Load unpacked"
-   - Select project folder
+3. Reload extension after changes
 
-4. **Make changes:**
-   - Edit files
-   - Click "Reload" on extension card (or press `Ctrl+R` on the extension page)
+---
 
-### Testing
+### API Testing
 
-**Test the API:**
 ```bash
-# Health check
 curl http://localhost:3000/api/health
+```
 
-# Store content
+```bash
 curl -X POST http://localhost:3000/api/content/store \
   -H "Content-Type: application/json" \
   -d '{"url":"https://example.com","title":"Test","content":"Hello world"}'
+```
 
-# Create assistant
+```bash
 curl -X POST http://localhost:3000/api/assistant/create \
   -H "Content-Type: application/json" \
   -d '{"contentId":"YOUR_CONTENT_ID"}'
 ```
 
+---
+
 ## 🚀 Deployment
 
-### Backend Deployment (Vercel)
+### Backend (Vercel)
 
 1. Push backend to GitHub
-2. Import to Vercel
+2. Import into Vercel
 3. Add environment variables
 4. Deploy
 
+---
+
 ### Chrome Web Store
 
-1. **Create ZIP:**
-   ```bash
-   # Include only extension files (NOT backend)
-   zip -r little-elf.zip \
-     manifest.json \
-     popup/ \
-     sidepanel/ \
-     content/ \
-     background/ \
-     assets/ \
-     -x "*.DS_Store" -x "*__MACOSX*"
-   ```
-
-2. **Prepare listing:**
-   - Screenshots (1280x800 or 640x400)
-   - Promotional images
-   - Description
-
-3. **Submit:**
-   - Go to [Chrome Developer Dashboard](https://chrome.google.com/webstore/devconsole)
-   - Pay $5 registration fee (one-time)
-   - Upload ZIP
-   - Fill in listing details
-   - Submit for review
-
-### Checklist for Publishing
-
-- [ ] Icons are correct sizes (16x16, 48x48, 128x128)
-- [ ] Manifest version is 3
-- [ ] All permissions are justified
-- [ ] Privacy policy URL (if needed)
-- [ ] Backend is deployed and accessible
-- [ ] Extension works with production API URL
-- [ ] Tested on multiple websites
-
-## 🛡️ Privacy & Security
-
-- **Local Storage**: Extension data is stored locally in Chrome
-- **API Keys**: Never stored in extension code
-- **Backend**: You control your own backend and data
-- **OpenAI**: Content is sent to OpenAI for processing
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-| Issue | Solution |
-|-------|----------|
-| "Cannot access this page" | Chrome internal pages (chrome://) are not supported |
-| "Failed to initialize" | Make sure backend is running at the configured URL |
-| "No assistant created" | Check OpenAI API key in backend .env.local |
-| Sidepanel doesn't open | Try the keyboard shortcut Ctrl+Shift+L |
-
-### Debug Mode
-
-1. Open Chrome DevTools (F12)
-2. Go to "Console" tab
-3. Filter by "Little Elf" to see extension logs
-
-### Backend Logs
-
-Check the terminal running `npm run dev` for API logs.
-
-## 📄 License
-
-MIT License - See LICENSE file for details.
-
-## 🙏 Credits
-
-- Built with [Next.js](https://nextjs.org/)
-- AI powered by [OpenAI](https://openai.com/)
-- Database by [MongoDB](https://www.mongodb.com/)
+```bash
+zip -r little-elf.zip \
+  manifest.json \
+  popup/ \
+  sidepanel/ \
+  content/ \
+  background/ \
+  assets/ \
+  -x "*.DS_Store" -x "*__MACOSX*"
+```
 
 ---
 
-Made with 🧝 by Little Elf
+### Publishing Checklist
 
- 
- 
+* Icons sized correctly
+* Manifest v3
+* Permissions justified
+* Backend live
+* Production API tested
+* Privacy policy ready
 
+---
+
+## 🛡️ Privacy & Security
+
+* Local storage only
+* API keys never in extension
+* Backend fully user-controlled
+* OpenAI used only for processing
+
+---
+
+## 🐛 Troubleshooting
+
+| Issue                 | Solution                            |
+| --------------------- | ----------------------------------- |
+| Page not accessible   | Chrome internal pages not supported |
+| Backend error         | Check API URL                       |
+| Assistant not created | Verify OpenAI key                   |
+| Sidepanel issue       | Use keyboard shortcut               |
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## 🙏 Credits
+
+* Next.js
+* OpenAI
+* MongoDB
+
+---
+
+**Made with 🧝 by Little Elf**
